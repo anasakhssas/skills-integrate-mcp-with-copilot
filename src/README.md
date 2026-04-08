@@ -5,7 +5,9 @@ A super simple FastAPI application that allows students to view and sign up for 
 ## Features
 
 - View all available extracurricular activities
+- Unregister from activities
 - Sign up for activities
+- Data persistence with SQLite (survives app restart)
 
 ## Getting Started
 
@@ -24,6 +26,12 @@ A super simple FastAPI application that allows students to view and sign up for 
 3. Open your browser and go to:
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
+
+## Persistence
+
+- The app now uses a local SQLite database file at `src/activities.db`.
+- On first startup, tables are created automatically and seeded with the default activities.
+- Existing endpoints continue to work, but data now persists across restarts.
 
 ## API Endpoints
 
@@ -47,4 +55,4 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+3. **Memberships** - Maps students to activities with foreign key integrity.
